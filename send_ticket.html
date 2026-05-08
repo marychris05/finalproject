@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MISO HELPPAGE | Send Ticket</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="css/styleA.css">
+    <style>
+        .field-msg { display:block; font-size:0.75rem; color:#dc2626; margin-top:4px; min-height:1em; }
+        input.invalid, select.invalid, textarea.invalid { border-color:#dc2626 !important; box-shadow:0 0 0 3px rgba(220,38,38,0.12) !important; }
+    </style>
+</head>
+<body class="page-shell">
+
+    <div class="page-topbar">
+        <div class="header-left">
+            <div class="logo"><img src="Images/logo.svg" alt="MISO Help Page Logo"></div>
+            <div class="brand-text">
+                <span class="brand-name">MISO</span>
+                <span class="brand-sub">IT Support Portal</span>
+            </div>
+        </div>
+        <nav class="header-nav">
+            <a href="index.html" class="nav-btn nav-btn--active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><polyline points="9 21 9 12 15 12 15 21"/></svg>
+                Home
+            </a>
+            <a href="javascript:history.back()" class="nav-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+                Back
+            </a>
+        </nav>
+    </div>
+
+    <div class="page-body">
+
+        <!-- LEFT: Form -->
+        <div class="form-card">
+            <div class="form-card-header">
+                <h2>&#128228; Send Us a Ticket</h2>
+            </div>
+            <div class="form-card-body">
+                <form action="create.php" method="post" id="ticketForm" novalidate>
+
+                    <div class="form-group">
+                        <label for="issue">Problem Name <span style="color:#dc2626">*</span></label>
+                        <input type="text" id="issue" name="issue" placeholder="e.g. Printer not working" required>
+                        <span class="field-msg" id="err-issue"></span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="fname">First Name <span style="color:#dc2626">*</span></label>
+                            <input type="text" id="fname" name="fname" placeholder="First name" required>
+                            <span class="field-msg" id="err-fname"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="lname">Last Name <span style="color:#dc2626">*</span></label>
+                            <input type="text" id="lname" name="lname" placeholder="Last name" required>
+                            <span class="field-msg" id="err-lname"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address <span style="color:#dc2626">*</span></label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                        <span class="field-msg" id="err-email"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dept">Department <span style="color:#dc2626">*</span></label>
+                        <select id="dept" name="dept" required>
+                            <option value="" selected disabled>Select a department</option>
+                            <option value="1">College of Education</option>
+                            <option value="2">College of Agriculture</option>
+                            <option value="3">College of Forestry</option>
+                            <option value="4">College of Hospitality and Tourism</option>
+                            <option value="5">College of Arts and Science</option>
+                            <option value="6">Registrar's Office</option>
+                            <option value="7">Administrative Office</option>
+                            <option value="8">Cashier's / Accounting Office</option>
+                            <option value="9">College of Technology and Engineering</option>
+                        </select>
+                        <span class="field-msg" id="err-dept"></span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone_no">Contact Number <span style="color:#dc2626">*</span></label>
+                            <input type="text" id="phone_no" name="phone_no" placeholder="09XXXXXXXXX" required>
+                            <span class="field-msg" id="err-phone"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="priority">Priority</label>
+                            <select id="priority" name="priority">
+                                <option value="Normal">Normal</option>
+                                <option value="High">High</option>
+                                <option value="Urgent">Urgent</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="desc">Problem Description</label>
+                        <textarea id="desc" name="desc" placeholder="Describe the issue in detail..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width:100%; margin-top:4px;">
+                        &#128228; Send Ticket
+                    </button>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+<script>
+document.getElementById('ticketForm').addEventListener('submit', function(e) {
+    var valid = true;
+
+    function check(id, errId, msg) {
+        var el = document.getElementById(id);
+        var err = document.getElementById(errId);
+        var val = el.value.trim();
+        if (!val) {
+            err.textContent = msg;
+            el.classList.add('invalid');
+            valid = false;
+        } else {
+            err.textContent = '';
+            el.classList.remove('invalid');
+        }
+    }
+
+    function checkEmail() {
+        var el = document.getElementById('email');
+        var err = document.getElementById('err-email');
+        var val = el.value.trim();
+        var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!val) {
+            err.textContent = 'Email address is required.';
+            el.classList.add('invalid');
+            valid = false;
+        } else if (!re.test(val)) {
+            err.textContent = 'Please enter a valid email address.';
+            el.classList.add('invalid');
+            valid = false;
+        } else {
+            err.textContent = '';
+            el.classList.remove('invalid');
+        }
+    }
+
+    function checkPhone() {
+        var el = document.getElementById('phone_no');
+        var err = document.getElementById('err-phone');
+        var val = el.value.trim();
+        if (!val) {
+            err.textContent = 'Contact number is required.';
+            el.classList.add('invalid');
+            valid = false;
+        } else if (!/^[0-9+\-\s]{7,15}$/.test(val)) {
+            err.textContent = 'Enter a valid contact number.';
+            el.classList.add('invalid');
+            valid = false;
+        } else {
+            err.textContent = '';
+            el.classList.remove('invalid');
+        }
+    }
+
+    check('issue',    'err-issue', 'Problem name is required.');
+    check('fname',    'err-fname', 'First name is required.');
+    check('lname',    'err-lname', 'Last name is required.');
+    checkEmail();
+    check('dept',     'err-dept',  'Please select a department.');
+    checkPhone();
+
+    if (!valid) e.preventDefault();
+});
+
+// Clear error on input
+['issue','fname','lname','email','dept','phone_no'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener('input', function() {
+        this.classList.remove('invalid');
+        var err = document.getElementById('err-' + id.replace('phone_no','phone'));
+        if (err) err.textContent = '';
+    });
+});
+</script>
+</body>
+</html>
+
+

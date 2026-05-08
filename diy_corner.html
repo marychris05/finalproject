@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MISO HELPPAGE | DIY Corner</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="css/styleA.css">
+</head>
+<body class="page-shell">
+
+    <div class="page-topbar">
+        <div class="header-left">
+            <div class="logo"><img src="Images/logo.svg" alt="MISO Help Page Logo"></div>
+            <div class="brand-text">
+                <span class="brand-name">MISO</span>
+                <span class="brand-sub">IT Support Portal</span>
+            </div>
+        </div>
+        <nav class="header-nav">
+            <a href="index.html" class="nav-btn nav-btn--active">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><polyline points="9 21 9 12 15 12 15 21"/></svg>
+                Home
+            </a>
+            <a href="javascript:history.back()" class="nav-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+                Back
+            </a>
+        </nav>
+    </div>
+
+    <div class="page-body">
+
+        <!-- LEFT: Form -->
+        <div class="form-card">
+            <div class="form-card-header">
+                <h2>&#9998; Add a Troubleshooting Guide</h2>
+            </div>
+            <div class="form-card-body">
+                <form action="diy.php" method="post">
+
+                    <div class="form-group">
+                        <label for="problem">Problem / Issue Title</label>
+                        <input type="text" id="problem" name="a" placeholder="e.g. Cannot connect to Wi-Fi" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guide">Troubleshooting Instructions</label>
+                        <textarea id="guide" name="b" style="min-height:220px;"
+                            placeholder="Write step-by-step instructions...&#10;&#10;Step 1: ...&#10;Step 2: ...&#10;Step 3: ..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width:100%; margin-top:4px;">
+                        &#10003; Submit Guide
+                    </button>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+
