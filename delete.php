@@ -89,6 +89,33 @@ function priorityBadge($p) {
 </head>
 <body class="page-shell">
 
+    <!-- ── ANIMATED GEOMETRIC BACKGROUND ── -->
+    <div class="bg-canvas" aria-hidden="true">
+        <svg class="bg-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+            <defs><pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="0.8"/></pattern></defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+            <line x1="-5%" y1="30%" x2="40%" y2="0%"    stroke="rgba(255,255,255,0.10)" stroke-width="1.2"/>
+            <line x1="0%"  y1="70%" x2="55%" y2="10%"   stroke="rgba(255,255,255,0.07)" stroke-width="0.9"/>
+            <line x1="60%" y1="0%"  x2="105%" y2="50%"  stroke="rgba(255,255,255,0.10)" stroke-width="1.2"/>
+            <line x1="45%" y1="100%" x2="105%" y2="30%" stroke="rgba(255,255,255,0.07)" stroke-width="0.9"/>
+            <line x1="20%" y1="100%" x2="80%" y2="0%"   stroke="rgba(255,255,255,0.05)" stroke-width="0.7"/>
+            <circle cx="18%" cy="22%" r="3"   fill="rgba(255,255,255,0.18)"/>
+            <circle cx="40%" cy="8%"  r="2"   fill="rgba(255,255,255,0.14)"/>
+            <circle cx="72%" cy="15%" r="3.5" fill="rgba(255,255,255,0.16)"/>
+            <circle cx="88%" cy="42%" r="2.5" fill="rgba(255,255,255,0.13)"/>
+            <circle cx="65%" cy="78%" r="3"   fill="rgba(255,255,255,0.15)"/>
+            <circle cx="28%" cy="85%" r="2"   fill="rgba(255,255,255,0.12)"/>
+            <circle cx="8%"  cy="60%" r="2.5" fill="rgba(255,255,255,0.14)"/>
+            <line x1="18%" y1="22%" x2="40%" y2="8%"   stroke="rgba(255,255,255,0.12)" stroke-width="0.8" stroke-dasharray="4 6"/>
+            <line x1="40%" y1="8%"  x2="72%" y2="15%"  stroke="rgba(255,255,255,0.10)" stroke-width="0.8" stroke-dasharray="4 6"/>
+            <line x1="72%" y1="15%" x2="88%" y2="42%"  stroke="rgba(255,255,255,0.12)" stroke-width="0.8" stroke-dasharray="4 6"/>
+            <line x1="88%" y1="42%" x2="65%" y2="78%"  stroke="rgba(255,255,255,0.10)" stroke-width="0.8" stroke-dasharray="4 6"/>
+            <line x1="65%" y1="78%" x2="28%" y2="85%"  stroke="rgba(255,255,255,0.12)" stroke-width="0.8" stroke-dasharray="4 6"/>
+            <line x1="28%" y1="85%" x2="8%"  y2="60%"  stroke="rgba(255,255,255,0.10)" stroke-width="0.8" stroke-dasharray="4 6"/>
+            <line x1="8%"  y1="60%" x2="18%" y2="22%"  stroke="rgba(255,255,255,0.12)" stroke-width="0.8" stroke-dasharray="4 6"/>
+        </svg>
+    </div>
+
     <div class="page-topbar">
         <div class="header-left">
             <div class="logo"><img src="Images/logo.svg" alt="MISO Help Page Logo"></div>
@@ -102,16 +129,15 @@ function priorityBadge($p) {
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><polyline points="9 21 9 12 15 12 15 21"/></svg>
                 Home
             </a>
-            <a href="javascript:history.back()" class="nav-btn">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-                Back
-            </a>
+
         </nav>
     </div>
 
     <div class="page-body">
 
-        <div class="form-card">
+        <div class="page-card-wrap">
+            <div class="page-card-tab page-card-tab--crimson" aria-hidden="true"></div>
+        <div class="form-card form-card--crimson">
             <div class="form-card-header">
                 <h2>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
@@ -177,7 +203,8 @@ function priorityBadge($p) {
                 <?php endif; ?>
 
             </div>
-        </div>
+        </div><!-- /.form-card -->
+        </div><!-- /.page-card-wrap -->
 
     </div>
 
